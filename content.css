@@ -1,0 +1,41 @@
+/* content.css —— 悬浮按钮样式 */
+/* z-index 取极大值，避免被电商页面自身的悬浮元素遮挡 */
+
+.imagegrab-fab {
+  position: fixed;
+  right: 24px;
+  bottom: 88px;
+  z-index: 2147483000;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: #6D5EF8;
+  color: #ffffff;
+  font: 500 14px/1 -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(109, 94, 248, 0.4);
+  user-select: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.imagegrab-fab:hover {
+  background: #5A4BE0;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(109, 94, 248, 0.5);
+}
+
+.imagegrab-fab:active {
+  transform: translateY(0);
+}
+
+/* 提取中的状态：变浅 + 禁用指针 */
+.imagegrab-fab.is-loading {
+  background: #9B92F5;
+  cursor: progress;
+}
+
+.imagegrab-fab-text {
+  white-space: nowrap;
+}

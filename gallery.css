@@ -1,0 +1,239 @@
+/* gallery.css —— 图片结果展示页样式 */
+
+:root {
+  --primary: #6D5EF8;
+  --primary-dark: #5A4BE0;
+  --bg: #F7F8FC;
+  --card: #FFFFFF;
+  --text: #1F2430;
+  --text-muted: #6B7280;
+  --border: #E6E8F0;
+  --success: #22C55E;
+  --danger: #EF4444;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 400 14px/1.6 -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+/* 顶部工具栏：吸顶 */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 20px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.brand {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.meta {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 7px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--text);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.selected {
+  font-size: 13px;
+  color: var(--primary);
+  font-weight: 500;
+  margin-left: 4px;
+}
+
+/* 图片网格：自适应列宽 */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+  padding: 20px;
+  padding-bottom: 100px;
+}
+
+/* 单张图片卡片 */
+.card {
+  position: relative;
+  background: var(--card);
+  border: 2px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(31, 36, 48, 0.12);
+}
+
+/* 选中态：主色边框 */
+.card.is-selected {
+  border-color: var(--primary);
+}
+
+.card-img {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  background: #F2F3F8;
+  display: block;
+}
+
+.card-info {
+  padding: 8px 10px;
+  font-size: 12px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.card-size {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 左上角勾选框 */
+.card-check {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 2px solid #fff;
+  background: rgba(0, 0, 0, 0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 13px;
+  line-height: 1;
+}
+
+.card.is-selected .card-check {
+  background: var(--primary);
+}
+
+/* 底部操作栏：固定 */
+.bottombar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid var(--border);
+}
+
+.btn-primary {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 6px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+.btn-primary:disabled {
+  background: #B9B4EE;
+  cursor: not-allowed;
+}
+
+.tip {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.tip.is-success {
+  color: var(--success);
+}
+
+.tip.is-error {
+  color: var(--danger);
+}
+
+/* 空状态 */
+.empty {
+  grid-column: 1 / -1;
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.empty-title {
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+    padding: 14px;
+    padding-bottom: 100px;
+  }
+
+  .card-img {
+    height: 120px;
+  }
+}

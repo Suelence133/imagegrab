@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>图提取 · 图片列表</title>
+<link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+
+<!-- 顶部工具栏：统计 + 全选 / 反选 / 清空 -->
+<header class="topbar">
+  <div class="topbar-left">
+    <span class="brand">图提取</span>
+    <span class="meta" id="meta">共 0 张</span>
+  </div>
+  <div class="topbar-actions">
+    <button class="btn" id="btn-all">全选</button>
+    <button class="btn" id="btn-invert">反选</button>
+    <button class="btn" id="btn-clear">清空</button>
+    <span class="selected" id="selected">已选 0 张</span>
+  </div>
+</header>
+
+<!-- 图片网格 -->
+<main class="grid" id="grid"></main>
+
+<!-- 底部操作栏 -->
+<footer class="bottombar">
+  <button class="btn-primary" id="btn-download">下载选中</button>
+  <span class="tip" id="tip"></span>
+</footer>
+
+<script src="gallery.js"></script>
+</body>
+</html>
